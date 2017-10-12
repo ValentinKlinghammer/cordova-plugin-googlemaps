@@ -7,6 +7,7 @@
 //
 
 #import "CordovaGoogleMaps.h"
+#import <CoreLocation/CoreLocation.h>
 
 @implementation CordovaGoogleMaps
 
@@ -299,7 +300,8 @@
                                           bearing: bearing
                                           viewingAngle: angle];
 
-        mapCtrl.map = [GMSMapView mapWithFrame:rect camera:camera];
+        // mapCtrl.map = [GMSMapView mapWithFrame:rect camera:camera];
+        mapCtrl.map = [[MKMapView alloc]initWithFrame:CGRectMake(0, 0, 375, 375)];
 
         //mapType
         NSString *typeStr = [initOptions valueForKey:@"mapType"];
